@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonkler</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <h1 class="logo">Jonkler</h1>
+  <p class="tagline">Your daily dose of laughs &amp; charm</p>
+
+  <p class="question">What do you want to hear today?</p>
+
+  <div class="choices">
+    <button class="choice-btn" id="joke-btn" data-type="joke">😂 Joke</button>
+    <button class="choice-btn" id="pickup-btn" data-type="pickup">😉 Pickup Line</button>
+  </div>
+
+  <div class="card placeholder" id="card">
+    <p id="card-text">Pick a category above to get started.</p>
+  </div>
+
+  <button class="again-btn" id="again-btn">Give me another</button>
+
+  <footer>Made for a laugh (or a wink) — refresh anytime.</footer>
+</div>
+
+<audio id="laugh-track" src="artificiallyinspired-90s-sitcom-laugh-track-353985.mp3" preload="auto"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
