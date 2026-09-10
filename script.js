@@ -44,12 +44,39 @@ const pickupLines = [
   "Is it hot in here, or is it just you?"
 ];
 
+const poems = [
+  "Roses are red,\nViolets are blue,\nI forgot the rest,\nso here's a haiku.",
+  "I asked the WiFi,\n'Do you love me?'\nIt said 'Connecting...'\nforever.",
+  "My diet started Monday,\nStrong and full of hope,\nBy Tuesday lunch\nI'd eaten all the cake and soap... just kidding, the cake.",
+  "Twinkle twinkle little bug,\nWhy'd you land in my coffee mug,\nUp above the world so high,\nNow you're floating, so am I.",
+  "There once was a man from the gym,\nWho skipped every leg day on a whim,\nHis arms grew so grand,\nHe could barely stand,\nA T-Rex had more balance than him.",
+  "Roses are red,\nCacti have spikes,\nI texted you first\nfour times tonight.",
+  "I like my coffee like I like my mornings,\nDark, bitter, and full of quiet warnings.",
+  "Sugar is sweet,\nAnd so are you,\nBut my Wi-Fi's slow\nand that's a bigger issue.",
+  "An ode to my alarm clock:\nI hate you every morning,\nYet somehow every night,\nI set you without warning,\nTo ruin my own life.",
+  "Once upon a Monday,\nI swore I'd get things done,\nThen my bed said 'stay a while',\nand honestly, it won.",
+  "Roses are red,\nMy socks don't match,\nNeither does my life,\nbut hey, nice catch.",
+  "I wrote you a poem,\nIt took me all week,\nThen autocorrect changed it\nto something quite bleak.",
+  "The moon is round,\nThe stars are bright,\nMy pizza's here,\nGoodnight, goodnight.",
+  "A limerick for my inbox:\nThere once was an inbox so vast,\nWith emails piled up from the past,\nI opened it wide,\nThen ran off and hid,\nThat unread count's built to last.",
+  "Roses are red,\nThe sky is grey,\nI clicked 'reply all'\nby mistake today.",
+  "My cat sat on my keyboard,\nAnd sent an email too,\nIt read 'zzzzzzzzzzzzz'\nMy boss replied 'Same, honestly, mood.'",
+  "Ode to Mondays:\nYou creep in slow,\nlike a villain in a play,\nI'd block you if I could,\nbut here you are, Monday.",
+  "Roses are red,\nMy plants are dead,\nI overwatered\nthen underfed.",
+  "Little snowflake falling down,\nLanding softly on the ground,\nThen it melts before it's cute,\nJust like my New Year's resolute.",
+  "I made you a sandwich,\nOut of love and cheese,\nThen ate it myself\nwhile you weren't looking, please forgive me."
+];
+
 const cardEl = document.getElementById('card');
 const cardText = document.getElementById('card-text');
 const againBtn = document.getElementById('again-btn');
 const jokeBtn = document.getElementById('joke-btn');
 const pickupBtn = document.getElementById('pickup-btn');
+const poetryBtn = document.getElementById('poetry-btn');
 const laughTrack = document.getElementById('laugh-track');
+
+const lists = { joke: jokes, pickup: pickupLines, poetry: poems };
+const buttons = { joke: jokeBtn, pickup: pickupBtn, poetry: poetryBtn };
 
 let currentType = null;
 
@@ -59,8 +86,7 @@ function pickRandom(arr) {
 
 function showResult(type) {
   currentType = type;
-  const list = type === 'joke' ? jokes : pickupLines;
-  const text = pickRandom(list);
+  const text = pickRandom(lists[type]);
 
   cardEl.classList.remove('show');
   cardEl.classList.remove('placeholder');
@@ -74,13 +100,15 @@ function showResult(type) {
     laughTrack.play().catch(() => { });
   }, 150);
 
-  jokeBtn.classList.toggle('active', type === 'joke');
-  pickupBtn.classList.toggle('active', type === 'pickup');
+  Object.entries(buttons).forEach(([key, btn]) => {
+    btn.classList.toggle('active', key === type);
+  });
   againBtn.classList.add('visible');
 }
 
-jokeBtn.addEventListener('click', () => showResult('joke'));
-pickupBtn.addEventListener('click', () => showResult('pickup'));
+Object.entries(buttons).forEach(([type, btn]) => {
+  btn.addEventListener('click', () => showResult(type));
+});
 againBtn.addEventListener('click', () => {
   if (currentType) showResult(currentType);
 });
