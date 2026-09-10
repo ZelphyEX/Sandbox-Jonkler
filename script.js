@@ -36,7 +36,7 @@ const pickupLines = [
   "Are you a hotdog? The way you make my weiner feel like home ~",
   "Excuse me, but I think you dropped something: my jaw.",
   "Is your dad a boxer? Because you're a knockout.",
-  "Are you a time traveler? Because I can't imagine my future without you.",
+  "Are your parents bakeries? Because they gave you such a caked up ass",
   "Do you have a Band-Aid? I just scraped my knee falling for you.",
   "Are you a loan? Because you have my interest.",
   "If you were a fruit, you'd be a fine-apple.",
