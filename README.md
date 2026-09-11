@@ -36,4 +36,4 @@ No server or build tools required — just open [index.html](index.html) directl
 
 Each category is a plain JavaScript array of strings in [script.js](script.js) (`jokes`, `pickupLines`, `poems`). Add or edit entries directly in the array — poems support multi-line text using `\n`.
 
-By the way this project is so ass, I rather playing game instead
+By the way this project is so ass, I rather playing game instead, and you are too.
