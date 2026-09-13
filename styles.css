@@ -97,6 +97,7 @@ body{
   margin:0;
   font-size:1.15rem;
   line-height:1.5;
+  white-space:pre-line;
 }
 .card.placeholder p{
   color:var(--muted);
